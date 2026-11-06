@@ -93,7 +93,9 @@ npm test
 - `src/audio.js`：Web Audio 合成脚步、推拉、换位、归位、撤销与通关音效，以及可选环境音；无外部音频资源。
 - `test/solutions.json`：全部关卡的一条可行路线（包含解谜答案）。
 
-所有美术由程序绘制，字体使用系统字体，无需外部 CDN、账号或 API Key。场景为 2D 等距投影，音效与环境音均为合成音色。
+游戏场景美术由程序绘制，字体使用系统字体，无需外部 CDN、账号或 API Key。场景为 2D 等距投影，音效与环境音均为合成音色。
+
+右上角源码入口使用 [GitHub Corners](https://github.com/tholman/github-corners) 的 Octocat SVG，作者 Tim Holman，MIT 授权；完整声明保存在 `src/github-corners.LICENSE.txt`，随静态页面一起发布。
 
 参考：[原作官方网站](https://www.orderofthesinkingstar.com/en/)、[PlayStation 官方玩法介绍](https://blog.playstation.com/2026/07/21/order-of-the-sinking-star-is-coming-to-ps5-hands-on-report/)。原作名称及相关权利归 Thekla, Inc. 等各自权利人所有。
 
