@@ -9,7 +9,9 @@ export const CHAPTERS = [
   {name:'星语之塔',en:'THE ASTRAL SANCTUARY',subtitle:'换位 · 距离只是一个念头',color:'#a29bc6'},
   {name:'交汇之境',en:'WHERE OUR WORLDS MEET',subtitle:'同行 · 不同的力量，同一片星空',color:'#77b7bd'},
   {name:'共鸣试炼',en:'THE TRIALS OF RESONANCE',subtitle:'协作 · 每一种力量都不可替代',color:'#8da88a'},
-  {name:'同心星阵',en:'THE CONSTELLATION OF US',subtitle:'接力 · 把前路交给同行的人',color:'#bc9b67'}
+  {name:'同心星阵',en:'THE CONSTELLATION OF US',subtitle:'接力 · 把前路交给同行的人',color:'#bc9b67'},
+  {name:'潮汐回廊',en:'THE TIDAL CLOISTER',subtitle:'双星 · 在狭路中交换方向',color:'#a29bc6'},
+  {name:'长夜星航',en:'VOYAGE THROUGH THE NIGHT',subtitle:'合奏 · 让每一道光都有归途',color:'#77b7bd'}
 ];
 const l=(title,chapter,description,hint,rows,heroes)=>({title,chapter,description,hint,rows,heroes});
 export const LEVELS = [
@@ -270,7 +272,7 @@ export const LEVELS = [
  {
    "title": "同心星阵",
    "chapter": 5,
-   "description": "最后一颗星，只回应共同的脚步。\n三种力量，缺一不可。",
+   "description": "这片星庭，只回应共同的脚步。\n三种力量，缺一不可。",
    "hint": "先由巫师与战士换位，进入东北窄井；盗贼在中部通道接走星晶，巫师把它转入南侧支路，最后交给战士。",
    "rows": [
      "~~#####",
@@ -304,5 +306,273 @@ export const LEVELS = [
      "wizard"
    ],
    "cooperation": "换位出井，牵引转运，推动入阵。"
- }
+ },
+ {
+  "title": "双岸回声",
+  "chapter": 6,
+  "description": "两颗星被困在同一条窄道，\n一人向前，一人把远方带回来。",
+  "hint": "战士先向南推动整列星晶，让下方那枚落在符印。盗贼绕到东侧，把另一枚向北带回，再交给战士送往西北。",
+  "rows": [
+    "######~",
+    "#O...#~",
+    "##.#C#~",
+    "~#..C##",
+    "##.#.E#",
+    "#..#O##",
+    "######~"
+  ],
+  "heroes": [
+    {
+      "type": "warrior",
+      "x": 4,
+      "y": 1
+    },
+    {
+      "type": "thief",
+      "x": 2,
+      "y": 5
+    }
+  ],
+  "requiredRoles": [
+    "warrior",
+    "thief"
+  ],
+  "cooperation": "整列推送、逆向牵引，分别安放双星。"
+},
+ {
+  "title": "折光之井",
+  "chapter": 6,
+  "description": "深井里的光不能直接抵达，\n需要在另一双眼睛里折返。",
+  "hint": "先调整战士的站位，让巫师换到北侧；东侧星晶先由战士向东推，再从符印上向北换位。下方星晶要经西侧回廊送往另一枚符印。",
+  "rows": [
+    "~#####~",
+    "##...##",
+    "#..C..#",
+    "##..#O#",
+    "#OE##.#",
+    "#..C###",
+    "#####~~"
+  ],
+  "heroes": [
+    {
+      "type": "warrior",
+      "x": 4,
+      "y": 2
+    },
+    {
+      "type": "wizard",
+      "x": 2,
+      "y": 5
+    }
+  ],
+  "requiredRoles": [
+    "warrior",
+    "wizard"
+  ],
+  "cooperation": "战士送入视线，巫师折返归位。"
+},
+ {
+  "title": "牵星越隙",
+  "chapter": 6,
+  "description": "一枚星越过裂隙，\n另一枚沿回声找到归路。",
+  "hint": "盗贼先向东拉开南侧星晶，给巫师留出换位落点。东南符印由巫师送达，西侧星晶需要盗贼向北牵引后再接力。",
+  "rows": [
+    "####~~~",
+    "#O.####",
+    "#..#..#",
+    "#..#C.#",
+    "##C...#",
+    "#.E##O#",
+    "#######"
+  ],
+  "heroes": [
+    {
+      "type": "thief",
+      "x": 3,
+      "y": 4
+    },
+    {
+      "type": "wizard",
+      "x": 4,
+      "y": 2
+    }
+  ],
+  "requiredRoles": [
+    "thief",
+    "wizard"
+  ],
+  "cooperation": "牵引打通走廊，换位跨过石隙。"
+},
+ {
+  "title": "回廊合奏",
+  "chapter": 6,
+  "description": "窄巷里，没有多余的落脚处，\n每一次让路，都是合奏的一拍。",
+  "hint": "让巫师先靠近南侧星晶，再换回北庭。盗贼牵出墙边星晶，战士沿窄道调整位置；最后要让盗贼站在星门处向南牵引。",
+  "rows": [
+    "#######",
+    "#.....#",
+    "##...##",
+    "#.C####",
+    "#O#...#",
+    "#E..###",
+    "#####~~"
+  ],
+  "heroes": [
+    {
+      "type": "warrior",
+      "x": 5,
+      "y": 4
+    },
+    {
+      "type": "thief",
+      "x": 3,
+      "y": 1
+    },
+    {
+      "type": "wizard",
+      "x": 4,
+      "y": 1
+    }
+  ],
+  "requiredRoles": [
+    "warrior",
+    "thief",
+    "wizard"
+  ],
+  "cooperation": "换位搬运、推动转向、牵引入门。"
+},
+ {
+  "title": "逆潮双子",
+  "chapter": 7,
+  "description": "逆着潮水带走一颗星，\n再把另一颗交给前行的人。",
+  "hint": "盗贼先把南侧星晶向东拉一格，腾出下方转运空间。另一枚经中庭向南移动，再沿西侧由两人交接向北送达；最后安放南侧星晶。",
+  "rows": [
+    "###~###",
+    "#O###.#",
+    "#.C#..#",
+    "#..#E##",
+    "#....##",
+    "##C.O.#",
+    "~######"
+  ],
+  "heroes": [
+    {
+      "type": "warrior",
+      "x": 1,
+      "y": 3
+    },
+    {
+      "type": "thief",
+      "x": 3,
+      "y": 4
+    }
+  ],
+  "requiredRoles": [
+    "warrior",
+    "thief"
+  ],
+  "cooperation": "先腾出双星的交接空间，再分路归位。"
+},
+ {
+  "title": "星锁回环",
+  "chapter": 7,
+  "description": "一颗星点亮高处的锁，\n另一颗仍要经过数次相逢。",
+  "hint": "巫师先靠近战士并向北换位，把中部星晶交给战士向北推动，再移到北侧符印。东侧那枚需要经中庭反复交接，最后由巫师送往西南。",
+  "rows": [
+    "~~#####",
+    "~~#.OC#",
+    "###C..#",
+    "#.E.###",
+    "#O#...#",
+    "###..##",
+    "~~####~"
+  ],
+  "heroes": [
+    {
+      "type": "warrior",
+      "x": 3,
+      "y": 5
+    },
+    {
+      "type": "wizard",
+      "x": 5,
+      "y": 2
+    }
+  ],
+  "requiredRoles": [
+    "warrior",
+    "wizard"
+  ],
+  "cooperation": "留出换位落点，推送与回收交替进行。"
+},
+ {
+  "title": "织光之径",
+  "chapter": 7,
+  "description": "沿旧路再走一次，\n星光便织成新的归途。",
+  "hint": "巫师先从东侧把墙角星晶换出，盗贼把它向西带入中庭。北侧星晶要先向南牵引，待东侧符印点亮，再交接送向西南。",
+  "rows": [
+    "~#####~",
+    "##...#~",
+    "#.#CO##",
+    "#.....#",
+    "###.#.#",
+    "#.OE#C#",
+    "#######"
+  ],
+  "heroes": [
+    {
+      "type": "thief",
+      "x": 4,
+      "y": 1
+    },
+    {
+      "type": "wizard",
+      "x": 1,
+      "y": 2
+    }
+  ],
+  "requiredRoles": [
+    "thief",
+    "wizard"
+  ],
+  "cooperation": "换出墙角，牵过转角，分路点亮。"
+},
+ {
+  "title": "长夜归航",
+  "chapter": 7,
+  "description": "长夜尽头的星门，\n只回应三位同行者共同的脚步。",
+  "hint": "先让巫师从东侧向北换出星晶，战士把它向南送入回廊。盗贼需要把回廊中的星晶重新向北牵出；经战士与巫师接力后，最后向北拉上东北符印。",
+  "rows": [
+    "~######",
+    "~#....#",
+    "##..#O#",
+    "#.##..#",
+    "#.E.C##",
+    "####..#",
+    "~~~####"
+  ],
+  "heroes": [
+    {
+      "type": "warrior",
+      "x": 2,
+      "y": 1
+    },
+    {
+      "type": "thief",
+      "x": 3,
+      "y": 4
+    },
+    {
+      "type": "wizard",
+      "x": 5,
+      "y": 1
+    }
+  ],
+  "requiredRoles": [
+    "warrior",
+    "thief",
+    "wizard"
+  ],
+  "cooperation": "换出封闭支路，推拉接力，合奏归航。"
+}
 ];

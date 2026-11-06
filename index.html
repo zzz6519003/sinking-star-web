@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#0c191b"><meta name="description" content="沉星之序 · 网页致敬版。探索星光下的遗迹，用推、拉与换位解开二十道谜题。">
+<meta name="theme-color" content="#0c191b"><meta name="description" content="沉星之序 · 网页致敬版。探索星光下的遗迹，用推、拉与换位解开二十八道谜题。">
 <title>沉星之序 · 星落之境</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%23d9bd7d' d='M32 3 38 25 61 32 38 39 32 61 25 39 3 32 25 25Z'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="./src/style.css">
@@ -19,7 +19,7 @@
 <aside class="level-info">
   <button class="back-map" id="map-button"><span>⌘</span> 旅程地图 <span class="tiny-arrow">↗</span></button>
   <div class="chapter-label"><span id="chapter-label">第一章 · 遗忘之庭</span><i></i></div>
-  <div class="level-number" id="level-number">01 <span>/ 20</span></div>
+  <div class="level-number" id="level-number">01 <span>/ 28</span></div>
   <h1 id="level-title">苔庭初醒</h1>
   <p class="level-description" id="level-description"></p>
   <div class="chapter-progress" id="chapter-progress"></div>
@@ -46,9 +46,9 @@
 <div class="touch-pad" aria-label="移动控制"><button data-dir="up" aria-label="向北移动">↗</button><button data-dir="left" aria-label="向西移动">↖</button><button data-dir="down" aria-label="向南移动">↙</button><button data-dir="right" aria-label="向东移动">↘</button></div>
 <footer><span class="footer-motto">每一次回溯，都是另一种可能。</span><a class="source-link" href="https://github.com/zzz6519003/sinking-star-web" target="_blank" rel="noopener noreferrer" aria-label="在新标签页打开 GitHub 源码仓库">GitHub 源码 ↗</a><span id="save-status">本地自动保存 <i></i></span></footer>
 </main>
-<dialog id="map-dialog" class="map-dialog"><div class="dialog-top"><span class="eyebrow">THE JOURNEY</span><button class="close-dialog" aria-label="关闭地图">×</button></div><h2>循着沉星的轨迹</h2><p class="dialog-intro" id="map-intro">二十道谜题，三种力量。一场关于相遇的旅程。</p><div id="level-map"></div><div class="map-footer"><span id="total-progress">已点亮 0 / 20 片星光</span><span>✧ 旅途可以随时继续</span></div></dialog>
+<dialog id="map-dialog" class="map-dialog"><div class="dialog-top"><span class="eyebrow">THE JOURNEY</span><button class="close-dialog" aria-label="关闭地图">×</button></div><h2>循着沉星的轨迹</h2><p class="dialog-intro" id="map-intro">二十八道谜题，三种力量。一场关于相遇的旅程。</p><div id="level-map"></div><div class="map-footer"><span id="total-progress">已点亮 0 / 28 片星光</span><span>✧ 旅途可以随时继续</span></div></dialog>
 <dialog id="help-dialog"><div class="dialog-top"><span class="eyebrow">A LITTLE GUIDANCE</span><button class="close-dialog" aria-label="关闭指南">×</button></div><h2>让星光重新流动</h2><p class="dialog-intro">把每一枚星晶移到金色符印上，再让一位同行者走入星门。</p><div class="help-heroes"><article><span class="portrait warrior">⚔</span><h3>战士 · 瓦伦</h3><p>沿移动方向推动一整列星晶。</p></article><article><span class="portrait thief">➶</span><h3>盗贼 · 缇芙</h3><p>不能推。每走一步，自动拉动身后的星晶。</p></article><article><span class="portrait wizard">✦</span><h3>巫师 · 伊索</h3><p>沿移动方向，与视线内首个星晶或同伴换位。没有目标时正常行走。</p></article></div><section class="sound-settings" aria-label="声音设置"><div class="sound-setting-row"><label for="sound-volume">轻柔声场 <span>脚步与互动音效</span></label><output id="volume-value" for="sound-volume">55%</output></div><input id="sound-volume" type="range" min="0" max="100" value="55" aria-label="游戏音量"><label class="ambient-setting"><input id="ambient-enabled" type="checkbox"> 加一点稀疏的星庭环境音</label><p>首次移动或点击后响起 · 右上角可随时静音</p></section><div class="help-controls"><p><kbd>W A S D</kbd> / <kbd>↑ ↓ ← →</kbd> 沿棋盘四个方向移动</p><p><kbd>1 2 3</kbd> 选择同行者　<kbd>Tab</kbd> 循环切换</p><p><kbd>Z</kbd> 撤销　<kbd>R</kbd> 重置　<kbd>H</kbd> 提示　<kbd>Esc</kbd> 关闭弹窗</p><p>也可以点击地面自动行走，点击同伴切换角色。</p></div><p class="about">非官方网页致敬原型 · 原创关卡与程序绘制美术。复现推、拉、换位的核心机制；不包含原作完整内容。<a href="https://www.orderofthesinkingstar.com/en/" target="_blank" rel="noreferrer">了解原作 ↗</a></p><button class="primary close-help">开始探索 <span>→</span></button></dialog>
-<dialog id="win-dialog" class="win-dialog"><span class="win-star">✧</span><div class="eyebrow">A FRAGMENT RESTORED</div><h2 id="win-title">一片星光，重新亮起</h2><p id="win-description"></p><div class="win-stats"><span>行走步数<b id="win-steps">0</b></span><span>最佳记录<b id="win-best">0</b></span><span>星光收集<b id="win-progress">1 / 20</b></span></div><button id="next-level" class="primary">继续旅程 <span>→</span></button><button id="win-map" class="text-button">返回旅程地图</button></dialog>
+<dialog id="win-dialog" class="win-dialog"><span class="win-star">✧</span><div class="eyebrow">A FRAGMENT RESTORED</div><h2 id="win-title">一片星光，重新亮起</h2><p id="win-description"></p><div class="win-stats"><span>行走步数<b id="win-steps">0</b></span><span>最佳记录<b id="win-best">0</b></span><span>星光收集<b id="win-progress">1 / 28</b></span></div><button id="next-level" class="primary">继续旅程 <span>→</span></button><button id="win-map" class="text-button">返回旅程地图</button></dialog>
 <script type="module" src="./src/app.js"></script>
 </body>
 </html>

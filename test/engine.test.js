@@ -1,9 +1,24 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {LEVELS} from '../src/levels.js';
-import {createState,move,isSolved,solve,litCount,searchSolutions} from '../src/engine.js';
+import {LEVELS,CHAPTERS} from '../src/levels.js';
+import {createState,move,isSolved,solve,litCount,searchSolutions,walkable,posKey} from '../src/engine.js';
 const solutions=JSON.parse(readFileSync(new URL('./solutions.json',import.meta.url)));
+test('关卡地形与队伍有效，章节、标题和双星目标完整',()=>{
+ assert.equal(solutions.length,LEVELS.length);
+ assert.equal(new Set(LEVELS.map(l=>l.title)).size,LEVELS.length);
+ for(const [i,level] of LEVELS.entries()){
+  assert.ok(CHAPTERS[level.chapter],`第 ${i+1} 关的章节存在`);
+  const state=createState(level),width=level.rows[0].length;
+  assert.ok(level.rows.every(row=>row.length===width&&/^[~#.COE]+$/.test(row)));
+  assert.ok(state.crates.length>0);assert.equal(state.crates.length,state.goals.length);
+  assert.equal(state.exits.length,1);assert.ok(level.description&&level.hint);
+  const actors=[...state.heroes,...state.crates];
+  assert.equal(new Set(actors.map(p=>posKey(p.x,p.y))).size,actors.length);
+  assert.ok(actors.every(p=>walkable(level,p.x,p.y)));
+ }
+ assert.ok(CHAPTERS.every((_,chapter)=>LEVELS.some(level=>level.chapter===chapter)));
+});
 for(const [i,level] of LEVELS.entries())test(`关卡 ${i+1}「${level.title}」存在完整通关路线`,()=>{
  let state=createState(level);assert.ok(solutions[i]?.length>0);
  for(const {hero,dir} of solutions[i]){const next=move(level,state,hero,dir);assert.ok(next,`${hero} ${dir} at step ${state.steps}`);state=next;}
