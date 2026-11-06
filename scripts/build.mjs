@@ -1,0 +1,12 @@
+import {cp, mkdir, readFile, rm, writeFile} from 'node:fs/promises';
+import {fileURLToPath} from 'node:url';
+import {resolve} from 'node:path';
+const root=fileURLToPath(new URL('..',import.meta.url)),output=resolve(root,'dist');
+await rm(output,{recursive:true,force:true});
+await mkdir(output,{recursive:true});
+await cp(resolve(root,'src'),resolve(output,'src'),{recursive:true});
+await cp(resolve(root,'index.html'),resolve(output,'index.html'));
+await writeFile(resolve(output,'.nojekyll'),'');
+const html=await readFile(resolve(output,'index.html'),'utf8');
+if(/(?:src|href)=["']\/src\//.test(html))throw new Error('Deployment must support a repository subpath');
+console.log('Built dist/ — static game, no third-party runtime dependencies.');

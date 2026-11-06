@@ -1,0 +1,16 @@
+{
+  "expo": {
+    "name": "沉星之序 · 星落之境",
+    "slug": "sinking-star-web",
+    "owner": "zzz6519003",
+    "version": "1.0.0",
+    "web": {
+      "output": "static"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "6ae569a5-0fcf-4f00-a9c7-96259502abfa"
+      }
+    }
+  }
+}
