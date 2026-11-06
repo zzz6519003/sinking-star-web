@@ -82,7 +82,9 @@ npm test
 
 ## 部署
 
-源码仓库：[zzz6519003/sinking-star-web](https://github.com/zzz6519003/sinking-star-web)。
+- 在线游玩（Expo）：[sinking-star-zzz6519003.expo.app](https://sinking-star-zzz6519003.expo.app/)
+- 备用入口（GitHub Pages）：[zzz6519003.github.io/sinking-star-web](https://zzz6519003.github.io/sinking-star-web/)
+- 源码仓库：[zzz6519003/sinking-star-web](https://github.com/zzz6519003/sinking-star-web)
 
 `npm run build` 只把游戏页面与 `src/` 打包到 `dist/`，不发布测试、截图、服务器源码或本地配置。页面资源与提示 Worker 均支持仓库子路径。
 
